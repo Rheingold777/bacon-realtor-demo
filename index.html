@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clint Bacon | Taylor TX Realtor | Everything is Better with Bacon!</title>
+    <meta name="description" content="Find your dream home in Taylor, Austin, and Central Texas with Clint Bacon, RE/MAX Associates Group. Local expertise, personal service.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #c53030;
+            --accent: #ed8936;
+            --gold: #d69e2e;
+            --light: #f7fafc;
+            --dark: #1a202c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--secondary), #9b2c2c);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(197,48,48,0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 50%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/></svg>') repeat;
+            background-size: 100px;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), #9b2c2c);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(197,48,48,0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 16px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        
+        .hero-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--gold);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+        }
+        
+        .hero-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .hero-card .title {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .hero-card .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .hero-card .contact-info a {
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .stats-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 0;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+        
+        .stat {
+            text-align: center;
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #666;
+        }
+        
+        /* Areas Section */
+        .areas {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .area-card {
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .area-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(26,54,93,0.3);
+        }
+        
+        .area-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .area-card p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary), #2c5282);
+            color: white;
+        }
+        
+        .testimonials .section-header h2 {
+            color: white;
+        }
+        
+        .testimonials .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card blockquote {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .testimonial-card cite {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), #9b2c2c);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary), #9b2c2c);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(197,48,48,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-brand .logo {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .remax-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .areas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .stats {
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Better with <span>Bacon</span></a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#areas">Areas</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:5128098525" class="cta-button">📞 (512) 809-8525</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="tagline">🥓 Everything is Better with Bacon!</p>
+                    <h1>Find Your <span>Dream Home</span> in Central Texas</h1>
+                    <p>Whether you're buying your first home, selling your property, or investing in real estate, I'm here to guide you every step of the way with local expertise and personal service.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">🏠 Start Your Search</a>
+                        <a href="tel:5128098525" class="btn-secondary">📞 Call Now</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-card">
+                        <div style="width:200px;height:200px;border-radius:50%;background:linear-gradient(135deg,#1a365d,#2c5282);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;border:5px solid #d69e2e;">
+                            <span style="font-size:4rem;">🥓</span>
+                        </div>
+                        <h3>Clint Bacon</h3>
+                        <p class="title">REALTOR® | RE/MAX Associates Group</p>
+                        <p style="color:#666;font-size:0.9rem;">License #691764</p>
+                        <div class="contact-info">
+                            <a href="tel:5128098525">📱 (512) 809-8525</a>
+                            <a href="mailto:baconsellstexas@gmail.com">✉️ baconsellstexas@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stats-bar">
+            <div class="container">
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Service Areas</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">RE/MAX</div>
+                        <div class="stat-label">Global Network</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Local</div>
+                        <div class="stat-label">Expert Knowledge</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Availability</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>How I Can Help You</h2>
+                <p>Full-service real estate expertise for buyers, sellers, and investors</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Buying a Home</h3>
+                    <p>From first-time buyers to luxury homes, I'll help you find the perfect property that fits your lifestyle and budget.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💰</div>
+                    <h3>Selling Your Property</h3>
+                    <p>Strategic marketing, professional photography, and expert negotiation to get you top dollar for your home.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Investment Properties</h3>
+                    <p>Identify profitable opportunities and build your real estate portfolio with data-driven insights.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Market Analysis</h3>
+                    <p>Get accurate home valuations and market insights to make informed decisions.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Relocation Services</h3>
+                    <p>Moving to Central Texas? I'll help you find the perfect neighborhood and community.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Contract Negotiation</h3>
+                    <p>Expert representation to protect your interests and secure the best terms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="areas" class="areas">
+        <div class="container">
+            <div class="section-header">
+                <h2>Service Areas</h2>
+                <p>Proudly serving Central Texas communities</p>
+            </div>
+            <div class="areas-grid">
+                <div class="area-card">
+                    <h3>Taylor</h3>
+                    <p>Home Base</p>
+                </div>
+                <div class="area-card">
+                    <h3>Austin</h3>
+                    <p>Capital City</p>
+                </div>
+                <div class="area-card">
+                    <h3>Round Rock</h3>
+                    <p>Family-Friendly</p>
+                </div>
+                <div class="area-card">
+                    <h3>Hutto</h3>
+                    <p>Growing Community</p>
+                </div>
+                <div class="area-card">
+                    <h3>Georgetown</h3>
+                    <p>Historic Charm</p>
+                </div>
+                <div class="area-card">
+                    <h3>Cedar Park</h3>
+                    <p>Where I Grew Up</p>
+                </div>
+                <div class="area-card">
+                    <h3>Thrall</h3>
+                    <p>Small Town Living</p>
+                </div>
+                <div class="area-card">
+                    <h3>Granger</h3>
+                    <p>Rural Retreat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Clients Say</h2>
+                <p>Building relationships, one home at a time</p>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>
+                    "Clint made our home buying experience seamless. His local knowledge of the Taylor area was invaluable, and he was always available to answer our questions. Truly everything IS better with Bacon!"
+                </blockquote>
+                <cite>— Happy Homeowner, Taylor TX</cite>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info-section">
+                    <h3>Let's Find Your Perfect Home</h3>
+                    <p style="margin-bottom:30px;color:#666;">Ready to buy, sell, or invest? I'm here to help you achieve your real estate goals.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📱</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="tel:5128098525" style="color:var(--primary);text-decoration:none;">(512) 809-8525</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">✉️</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:baconsellstexas@gmail.com" style="color:var(--primary);text-decoration:none;">baconsellstexas@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div>
+                            <strong>Office</strong><br>
+                            RE/MAX Associates Group<br>
+                            906 North Main<br>
+                            Taylor, TX 76574
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top:30px;">
+                        <a href="https://www.facebook.com/ClintBaconRealtor" target="_blank" style="display:inline-block;background:#1877f2;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;margin-right:10px;">Facebook</a>
+                        <a href="https://www.facebook.com/BetterwithBaconRE" target="_blank" style="display:inline-block;background:#1877f2;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;">Better with Bacon</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" name="name" required placeholder="John Smith">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" placeholder="(512) 555-1234">
+                        </div>
+                        <div class="form-group">
+                            <label>I'm interested in...</label>
+                            <select name="interest">
+                                <option value="buying">Buying a Home</option>
+                                <option value="selling">Selling My Home</option>
+                                <option value="both">Buying & Selling</option>
+                                <option value="investing">Investment Property</option>
+                                <option value="valuation">Home Valuation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea name="message" rows="4" placeholder="Tell me about what you're looking for..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">🥓 Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Better with <span style="color:#c53030;">Bacon</span></a>
+                    <p>Your trusted real estate partner in Central Texas. Let's find your dream home together.</p>
+                    <div class="remax-badge">
+                        <span style="font-size:1.5rem;">🏠</span>
+                        <span>RE/MAX Associates Group</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#areas">Service Areas</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:5128098525">(512) 809-8525</a></li>
+                        <li><a href="mailto:baconsellstexas@gmail.com">Email Me</a></li>
+                        <li><a href="#">Schedule a Call</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Clint Bacon, REALTOR® | RE/MAX Associates Group | License #691764</p>
+                <p style="margin-top:10px;font-size:0.85rem;">Each RE/MAX office is independently owned and operated.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
